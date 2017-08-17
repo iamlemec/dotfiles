@@ -1,0 +1,193 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+
+body {
+	background-color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+#content {
+	width: 700px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	border: none;
+}
+
+#firstHeading {
+	text-align: center;
+	border: none;
+	font-family: 'Open Sans', sans-serif !important;
+	font-size: 35px !important;
+	font-weight: 700 !important;
+	border-bottom: 2px solid black;
+	margin-bottom: 30px;
+}
+
+#navigationHeader {
+	border-width: 2px 0px 2px 0px !important;
+	border-color: black !important;
+}
+
+#navigationHeader div {
+	background-color: white !important;
+}
+
+.mw-indicators {
+	position: absolute !important;
+}
+
+#siteSub {
+	text-align: center;
+}
+
+.hatnote {
+	padding-left: 0px !important;
+}
+
+h2 > .mw-headline {
+	font-family: 'Open Sans', sans-serif !important;
+	font-size: 27px !important;
+	font-weight: 700 !important;
+}
+
+h2 {
+	margin-top: 45px !important;
+	border-bottom: none !important;
+}
+
+h3 {
+	margin-top: 25px !important;
+}
+
+h4 {
+	margin-top: 20px !important;
+}
+
+h5 {
+	margin-top: 20px !important;
+}
+
+p {
+	margin-top: 15px !important;
+	font-size: 15px;
+	line-height: 160%;
+	/* text-align: justify; */
+}
+
+.mwe-popups {
+	font-size: 15px;
+	line-height: 160%;
+}
+
+li {
+	font-size: 15px;
+	line-height: 160%;
+}
+
+#mw-page-base {
+	background-image: none;
+}
+
+.infobox {
+	/* position: absolute; */
+	/* top: 0px; */
+	/* left: 100%; */
+	margin-left: 25px !important;
+	/* margin-right: 25px !important; */
+	/* right: 100%; */
+	border: none !important;
+	background-color: white !important;
+}
+
+.navbox,
+.vertical-navbox,
+.catlinks {
+	border: none !important;
+	background-color: white !important;
+}
+
+.ambox {
+	position: absolute;
+	margin-left: 105% !important;
+	width: 280px;
+	background-color: white !important;
+	border-color: #EEE !important;
+}
+
+.metadata {
+	display: none;
+}
+
+.thumbinner {
+	background-color: white !important;
+	border: none !important;
+	padding-top: 13px !important;
+}
+
+.quotebox {
+	background-color: white !important;
+	border-top: none !important;
+	border-left: none !important;
+	border-right: none !important;
+	margin-left: 25px !important;
+}
+
+.quotebox p {
+	margin-top: 0px !important;
+}
+
+.wikitable {
+	background-color: white !important;
+}
+
+.wikitable > tr > th,
+.wikitable > tbody > tr > th {
+	background-color: #F9F9F9 !important;
+}
+
+#p-navigation,
+#p-interaction,
+#p-tb,
+#p-coll-print_export,
+#p-wikibase-otherprojects,
+#p-lang {
+	display: none;
+}
+
+#p-logo {
+	transform: scale(0.75);
+}
+
+#p-views {
+	background-image: none;
+}
+
+#p-views > ul > li {
+	background-image: none;
+	background-color: white;
+}
+
+#p-views > ul > li > span {
+	background-image: none;
+}
+
+#p-namespaces {
+	background-image: none;
+}
+
+#p-namespaces > ul > li {
+	background-image: none;
+	background-color: white;
+}
+
+#p-namespaces > ul > li > span {
+	background-image: none;
+}
+
+#p-cactions {
+	display: none;
+}
+
+#siteSub {
+	display: none;
+}

@@ -1,0 +1,76 @@
+/*
+Placeholder for custom user CSS
+
+mainly to be overridden in profile/static/custom/custom.css
+
+This will always be an empty file in IPython
+*/
+
+/* browser */
+#tab_content {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* notebook */
+#menubar-container {
+    height: 0px;
+    display: none;
+}
+
+#header-container {
+}
+
+.container {
+    width: auto;
+}
+
+#kernel_logo_widget {
+    float: right;
+}
+
+#login_widget {
+    float: right;
+}
+
+#notebook-container {
+    max-width: 850px;
+}
+
+.rendered_html h1 {
+    text-align: center;
+    font-size: 250%;
+}
+
+.rendered_html h2 {
+    font-size: 150%;
+}
+
+.prompt {
+    width: 20px;
+    min-width: 20px;
+}
+
+div.cell {
+    border-width: 0px;
+}
+
+div.input_area {
+    background-color: white;
+    border-radius: 0px;
+}
+
+@media not print {
+    #notebook-container {
+      box-shadow: none;
+    }
+
+    .notebook_app {
+      background-color :#ffffff;
+    }
+
+    .notebook_app #header {
+      box-shadow: none;
+      border-bottom: 1px solid #eeeeee;
+    }
+}
