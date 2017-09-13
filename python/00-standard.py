@@ -1,17 +1,18 @@
-def plotter():
-    import matplotlib.pyplot as plt
+def plotter(theme=['scaled']):
+    import matplotlib as mpl
     import seaborn as sns
 
-    plt.style.use('scaled')
-    plt.ion()
+    mpl.style.use(theme)
+    mpl.interactive(True)
 
     def despiner(f):
-        def fp(*args,**kwargs):
-            f(*args, **kwargs)
-            sns.despine()
+        def fp(*args, **kwargs):
+            dsp = kwargs.pop('despine', True)
+            ret = f(*args, **kwargs)
+            if dsp:
+                sns.despine()
+            return ret
         return fp
 
     for n in ['plot', 'scatter', 'bar']:
-        setattr(plt, n, despiner(getattr(plt, n)))
-
-    return plt
+        setattr(mpl.axes.Axes, n, despiner(getattr(mpl.axes.Axes, n)))
