@@ -17,6 +17,8 @@ axes.prop_cycle: cycler('color', [(0.2980392156862745, 0.4470588235294118, 0.690
 # axes.spines.top: False
 # axes.spines.right: False
 axes.grid: False
+axes.spines.top: False
+axes.spines.right: False
 
 #grid.color: (0.9,0.9,0.9)
 
