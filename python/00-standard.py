@@ -6,27 +6,15 @@ import numpy as np
 np.concat = np.concatenate
 
 # patcher loader for matplotlib
-def plotter(pyplot=True, theme=['clean'], rc={}):
+def plotter(pyplot=True, backend='GTK3Agg', theme=['clean'], rc={}):
     import matplotlib as mpl
     import seaborn as sns
     import pandas as pd
 
+    mpl.use(backend)
     mpl.style.use(theme)
     mpl.rcParams.update(rc)
     mpl.interactive(True)
-
-    # auto despiner
-    def despiner(f):
-        def fp(*args, **kwargs):
-            dsp = kwargs.pop('despine', True)
-            ret = f(*args, **kwargs)
-            if dsp:
-                sns.despine()
-            return ret
-        return fp
-
-    for n in ['plot', 'scatter', 'bar']:
-        setattr(mpl.axes.Axes, n, despiner(getattr(mpl.axes.Axes, n)))
 
     # kill hist grid
     if not hasattr(pd.Series, 'hist0'):
