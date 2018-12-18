@@ -1,0 +1,30 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#context-pocket, #context-sendpagetodevice, #context-selectall, 
+#context-viewinfo, #screenshots_mozilla_org_create-screenshot,
+#context-sendimage, #context-copyimage-contents, #context-setDesktopBackground,
+#mediacontext-viewimageinfo, #context-openlinkincontainertab, #context-bookmarklink,
+#context-openlinkinusercontext-menu, #context-savelinktopocket,
+#context-sendlinktodevice, #context-copyimage, #context-viewimageinfo
+#context_reloadTab, #context_pinTab, #context_selectAllTabs, #context_bookmarkTab,
+#context_moveTabOptions, #context_closeTabsToTheEnd, #context_closeOtherTabs,
+#context_closeTab
+{
+    display: none !important;
+}
+
+#new-tab-image_exe-boss_image\:createTab {
+  -moz-box-ordinal-group: 0 !important;
+}
+
+/* Show the bookmarks toolbar only on new tab */
+#main-window:not([title^="Mozilla Firefox"]):not([title^="New Tab"])
+#PersonalToolbar {
+  visibility: collapse;
+}
+
+.tabbrowser-arrowscrollbox > .arrowscrollbox-scrollbox {
+    /* Place bindings.xml in the same folder as userChrome.css */
+    -moz-binding: url("bindings.xml#tabs-scroll") !important;
+}
+
