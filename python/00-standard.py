@@ -8,15 +8,15 @@ np.concat = np.concatenate
 # patcher loader for matplotlib
 def plotter(pyplot=True, backend='GTK3Agg', theme=['clean'], rc={}):
     import matplotlib as mpl
-    import seaborn as sns
-    import pandas as pd
+    import matplotlib.style as style
 
     mpl.use(backend)
-    mpl.style.use(theme)
+    style.use(theme)
     mpl.rcParams.update(rc)
     mpl.interactive(True)
 
     # kill hist grid
+    import pandas as pd
     if not hasattr(pd.Series, 'hist0'):
         pd.Series.hist0 = pd.Series.hist
         def hist(*args, **kwargs):
