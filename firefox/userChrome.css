@@ -14,12 +14,12 @@
 }
 
 #new-tab-image_exe-boss_image\:createTab {
-  -moz-box-ordinal-group: 0 !important;
+    -moz-box-ordinal-group: 0 !important;
 }
 
 /* Show the bookmarks toolbar only on new tab */
-#main-window:not([title^="Mozilla Firefox"]):not([title^="New Tab"])
+#main-window:not([title^="Mozilla Firefox"]):not([title^="Firefox Developer Edition"]):not([title^="New Tab"])
 #PersonalToolbar {
-  visibility: collapse;
+    visibility: collapse;
 }
 

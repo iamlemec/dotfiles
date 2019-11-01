@@ -5,3 +5,7 @@ import numpy as np
 
 # patching numpy
 np.concat = np.concatenate
+
+# theme up altair
+altair_config()
+import pdvega
