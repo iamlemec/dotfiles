@@ -34,7 +34,7 @@ This will always be an empty file in IPython
 }
 
 #notebook-container {
-    max-width: 850px;
+    max-width: 950px;
 }
 
 .rendered_html h1 {
@@ -47,8 +47,8 @@ This will always be an empty file in IPython
 }
 
 .prompt {
-    width: 20px;
-    min-width: 20px;
+    width: 100px;
+    min-width: 100px;
 }
 
 div.cell {

@@ -7,5 +7,5 @@ import numpy as np
 np.concat = np.concatenate
 
 # theme up altair
-altair_config()
-import pdvega
+# altair_config()
+# import pdvega
