@@ -13,5 +13,5 @@ np.concat = np.concatenate
 idx = pd.IndexSlice
 
 # theme up altair
-altair_config()
-import pdvega
+# altair_config()
+# import pdvega
