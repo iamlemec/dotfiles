@@ -1,5 +1,6 @@
 from mectools.hyper import *
 from mectools.plotter import *
+from pathlib import Path
 import pandas as pd
 import numpy as np
 
