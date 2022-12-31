@@ -13,6 +13,3 @@ np.concat = np.concatenate
 # pandas indexing
 idx = pd.IndexSlice
 
-# theme up altair
-# altair_config()
-# import pdvega

@@ -1,4 +1,8 @@
+/*
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+*/
+
+@import "firefox-gnome-theme/userChrome.css";
 
 #context-pocket, #context-sendpagetodevice, #context-viewinfo, #screenshots_mozilla_org_create-screenshot, #context-sendimage, #context-copyimage-contents, #context-setDesktopBackground, #mediacontext-viewimageinfo, #context-openlinkincontainertab, #context-bookmarklink, #context-openlinkinusercontext-menu, #context-savelinktopocket, #context-sendlinktodevice, #context-copyimage, #context-viewimageinfo, #context_reloadTab, #context_pinTab, #context_selectAllTabs, #context_bookmarkTab, #context_moveTabOptions, #context_closeTabsToTheEnd, #context_closeOtherTabs, #context_closeTab, #context-inspect-a11y, #context-take-screenshot, #context-print-selection, #context-viewpartialsource-selection, #context-sep-screenshots, #frame-sep, #context-navigation, #context-sep-navigation
 {
