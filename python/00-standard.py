@@ -1,8 +1,13 @@
-from mectools.hyper import *
-from mectools.plotter import *
+# mectools (off for now)
+# from mectools.hyper import *
+# from mectools.plotter import *
+
 from pathlib import Path
 import pandas as pd
 import numpy as np
+
+# numpy precision
+np.set_printoptions(precision=4, linewidth=120)
 
 # build it in
 from itertools import chain
