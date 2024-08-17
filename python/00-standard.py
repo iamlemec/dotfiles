@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 
 # numpy precision
-np.set_printoptions(precision=4, linewidth=120)
+np.set_printoptions(precision=4, suppress=True, linewidth=120)
 
 # build it in
 from itertools import chain
