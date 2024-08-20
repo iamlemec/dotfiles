@@ -5,22 +5,15 @@ local actions = require("telescope.actions")
 
 -- return plugins
 return {
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   lazy = false,
-  --   priority = 1000,
-  --   opts = { style = "moon" }
-  -- },
-
   {
-    'projekt0n/github-nvim-theme',
+    "projekt0n/github-nvim-theme",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      require('github-theme').setup({
-	options = {
-	  transparent = true,
-	},
+      require("github-theme").setup({
+        options = {
+          transparent = true,
+        },
       })
     end,
   },
@@ -36,27 +29,116 @@ return {
   },
 
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require('lualine').setup({
+        options = {
+          icons_enabled = true,
+          theme = 'auto',
+          component_separators = { left = '', right = ''},
+          section_separators = { left = '', right = ''},
+          disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+          },
+          ignore_focus = {},
+          always_divide_middle = true,
+          globalstatus = false,
+          refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+          }
+        },
+        sections = {
+          lualine_a = {'mode'},
+          lualine_b = {'branch', 'diff', 'diagnostics'},
+          lualine_c = {'filename'},
+          lualine_x = {'encoding', 'fileformat', 'filetype'},
+          lualine_y = {'progress'},
+          lualine_z = {'location'}
+        },
+        inactive_sections = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = {'filename'},
+          lualine_x = {'location'},
+          lualine_y = {},
+          lualine_z = {}
+        },
+        tabline = {},
+        winbar = {},
+        inactive_winbar = {},
+        extensions = {}
+      })
+    end
+  },
+
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       defaults = {
-	mappings = {
-	  i = {
-	    ["<esc>"] = actions.close
-	  }
-	}
-      }
+        mappings = {
+          i = {
+            ["<esc>"] = actions.close,
+          },
+        },
+      },
     },
   },
 
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      indent = { enabled = true },
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     },
   },
 
+  -- {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   opts = {
+  --     indent = { enabled = true },
+  --   },
+  -- },
+
+  -- smarter indent?
+  {
+    "nmac427/guess-indent.nvim",
+    config = function()
+      require('guess-indent').setup({})
+    end,
+  },
+
+  -- indent / scope lines
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+    config = function()
+      require("ibl").setup({
+        indent = {
+          char = "▏",
+          highlight = { "IndentLine" },
+        },
+        scope = {
+          enabled = false,
+        },
+      })
+    end,
+  },
+
+  -- replace surrounding quotes, braces, etc
   {
     "kylechui/nvim-surround",
      version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -69,20 +151,33 @@ return {
   },
 
   {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup({})
+    end,
+    dependencies = {
+      {
+        'nvim-tree/nvim-web-devicons',
+      },
+    }
+  },
+
+  {
     "nanozuki/tabby.nvim",
     -- event = 'VimEnter', -- if you want lazy load, see below
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       local theme = {
-        fill = 'TabLineFill',
+        fill = "TabLineFill",
         -- Also you can do this: fill = { fg='#f2e9de', bg='#907aa9', style='italic' }
-        head = 'TabLine',
-        current_tab = 'TabLineSel',
-        tab = 'TabLine',
-        win = 'TabLine',
-        tail = 'TabLine',
+        head = "TabLine",
+        current_tab = "TabLineSel",
+        tab = "TabLine",
+        win = "TabLine",
+        tail = "TabLine",
       }
-      require('tabby').setup({
+      require("tabby").setup({
         line = function(line)
           return {
             {
@@ -132,5 +227,83 @@ return {
       })
     end,
   },
+
+  -- {
+  --   dir = "~/mlai/nvim_plugins/dingllm.nvim",
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  --   config = function()
+  --     local system_prompt =
+  --       'You should replace the code that you are sent, only following the comments. Do not talk at all. Only output valid code. Do not provide any backticks that surround the code. Never ever output backticks like this ```. Any comment that is asking you for something should be removed after you satisfy them. Other comments should left alone. Do not output backticks'
+  --     local helpful_prompt = 'You are a helpful assistant. What I have sent are my notes so far. You are very curt, yet helpful.'
+  --     local dingllm = require 'dingllm'
+  --
+  --     -- local function groq_replace()
+  --     --   dingllm.invoke_llm_and_stream_into_editor({
+  --     --     url = 'https://api.groq.com/openai/v1/chat/completions',
+  --     --     model = 'llama-3.1-70b-versatile',
+  --     --     api_key_name = 'GROQ_API_KEY',
+  --     --     system_prompt = system_prompt,
+  --     --     replace = true,
+  --     --   }, dingllm.make_openai_spec_curl_args, dingllm.handle_openai_spec_data)
+  --     -- end
+  --
+  --     -- local function groq_help()
+  --     --   dingllm.invoke_llm_and_stream_into_editor({
+  --     --     url = 'https://api.groq.com/openai/v1/chat/completions',
+  --     --     model = 'llama3-70b-8192',
+  --     --     api_key_name = 'GROQ_API_KEY',
+  --     --     system_prompt = helpful_prompt,
+  --     --     replace = false,
+  --     --   }, dingllm.make_openai_spec_curl_args, dingllm.handle_openai_spec_data)
+  --     -- end
+  --
+  --     local function openai_replace()
+  --       dingllm.invoke_llm_and_stream_into_editor({
+  --         url = 'https://api.openai.com/v1/chat/completions',
+  --         model = 'gpt-4o',
+  --         api_key_name = 'OPENAI_API_KEY',
+  --         system_prompt = system_prompt,
+  --         replace = true,
+  --       }, dingllm.make_openai_spec_curl_args, dingllm.handle_openai_spec_data)
+  --     end
+  --
+  --     local function openai_help()
+  --       dingllm.invoke_llm_and_stream_into_editor({
+  --         url = 'https://api.openai.com/v1/chat/completions',
+  --         model = 'gpt-4o',
+  --         api_key_name = 'OPENAI_API_KEY',
+  --         system_prompt = helpful_prompt,
+  --         replace = false,
+  --       }, dingllm.make_openai_spec_curl_args, dingllm.handle_openai_spec_data)
+  --     end
+  --
+  --     local function anthropic_help()
+  --       dingllm.invoke_llm_and_stream_into_editor({
+  --         url = 'https://api.anthropic.com/v1/messages',
+  --         model = 'claude-3-5-sonnet-20240620',
+  --         api_key_name = 'ANTHROPIC_API_KEY',
+  --         system_prompt = helpful_prompt,
+  --         replace = false,
+  --       }, dingllm.make_anthropic_spec_curl_args, dingllm.handle_anthropic_spec_data)
+  --     end
+  --
+  --     local function anthropic_replace()
+  --       dingllm.invoke_llm_and_stream_into_editor({
+  --         url = 'https://api.anthropic.com/v1/messages',
+  --         model = 'claude-3-5-sonnet-20240620',
+  --         api_key_name = 'ANTHROPIC_API_KEY',
+  --         system_prompt = system_prompt,
+  --         replace = true,
+  --       }, dingllm.make_anthropic_spec_curl_args, dingllm.handle_anthropic_spec_data)
+  --     end
+  --
+  --     -- vim.keymap.set({ 'n', 'v' }, '<leader>k', groq_replace, { desc = 'llm groq' })
+  --     -- vim.keymap.set({ 'n', 'v' }, '<leader>K', groq_help, { desc = 'llm groq_help' })
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>L', openai_help, { desc = 'llm openai_help' })
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>l', openai_replace, { desc = 'llm openai' })
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>I', anthropic_help, { desc = 'llm anthropic_help' })
+  --     vim.keymap.set({ 'n', 'v' }, '<leader>i', anthropic_replace, { desc = 'llm anthropic' })
+  --   end,
+  -- },
 }
 
