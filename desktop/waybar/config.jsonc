@@ -24,7 +24,7 @@
         "memory",
         "temperature",
         "backlight",
-        "keyboard-state",
+        // "keyboard-state",
         "battery",
         "battery#bat2",
         "tray",

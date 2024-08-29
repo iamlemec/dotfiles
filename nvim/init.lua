@@ -12,6 +12,9 @@ vim.g.maplocalleader = "\\"
 vim.wo.number = true
 vim.wo.relativenumber = true
 
+-- set use system clipboard
+vim.opt.clipboard = "unnamedplus"
+
 -- new highlight groups
 vim.api.nvim_set_hl(0, "IndentLine", { fg = "#333333" })
 
@@ -66,3 +69,10 @@ vim.keymap.set("n", "<s-up>", "<c-y>")
 vim.keymap.set("n", "<s-down>", "<c-e>")
 vim.keymap.set("n", "<c-up>", "<c-u>")
 vim.keymap.set("n", "<c-down>", "<c-d>")
+
+-- tweaks for avante.nvim
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+-- Default splitting will cause your main splits to jump when opening an edgebar.
+-- To prevent this, set `splitkeep` to either `screen` or `topline`.
+vim.opt.splitkeep = "screen"
