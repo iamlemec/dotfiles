@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: 'Monaspace Neon Var', monospace, 'Font Awesome 6 Free';
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 500;
     min-height: 0;
 }
@@ -10,8 +10,6 @@
 window#waybar {
     background: rgba(43, 48, 59, 0.7);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    padding: 5px;
-    border-radius: 5px;
     color: white;
 }
 
@@ -25,25 +23,24 @@ tooltip label {
 }
 
 #workspaces button {
-    padding: 0 5px;
     color: white;
-    background-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
 }
 
 #workspaces button.active {
-    background-color: rgba(255, 255, 255, 0.2);
     border-bottom: 3px solid #ffffff;
 }
 
-#workspaces button:first-child {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: inherit;
+    text-shadow: inherit;
 }
 
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #power-profiles-daemon {
-    padding: 0 10px;
+    padding: 0 5px;
     background-color: rgba(255, 255, 255, 0.1);
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
@@ -56,8 +53,6 @@ tooltip label {
 
 #clock {
     background-color: rgba(255, 255, 255, 0.25);
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
     border-bottom: 3px solid #ffffff;
 }
 

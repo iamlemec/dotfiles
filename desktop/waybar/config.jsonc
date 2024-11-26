@@ -2,12 +2,12 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 40, // Waybar height (to be removed for auto height)
+    "height": 25, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 16, // Gaps between modules (4px)
-    "margin-top": 8, // margin for whole bar
-    "margin-left": 8,
-    "margin-right": 8,
+    "spacing": 4, // Gaps between modules (4px)
+    "margin-top": 0, // margin for whole bar
+    "margin-left": 0,
+    "margin-right": 0,
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces"
@@ -20,10 +20,10 @@
         // "idle_inhibitor",
         "pulseaudio",
         "network",
-        "cpu",
-        "memory",
-        "temperature",
-        "backlight",
+        // "cpu",
+        // "memory",
+        // "temperature",
+        // "backlight",
         // "keyboard-state",
         "battery",
         "battery#bat2",
