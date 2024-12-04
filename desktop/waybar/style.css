@@ -42,9 +42,15 @@ tooltip label {
     border-bottom-left-radius: 5px;
 }
 
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: none;
+    text-shadow: none;
+}
+
 #clock, #battery, #cpu, #memory, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #power-profiles-daemon {
     padding: 0 10px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
 }
