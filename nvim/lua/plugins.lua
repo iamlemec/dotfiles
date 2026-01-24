@@ -278,20 +278,20 @@ return {
   --   end,
   -- },
 
-  {
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    build = "make",
-    opts = {
-      provider = "claude",
-    },
-    dependencies = {
-      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-    },
-  },
+  -- {
+  --   "yetone/avante.nvim",
+  --   event = "VeryLazy",
+  --   build = "make",
+  --   opts = {
+  --     provider = "claude",
+  --   },
+  --   dependencies = {
+  --     "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+  --     "stevearc/dressing.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "MunifTanjim/nui.nvim",
+  --   },
+  -- },
 
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -300,4 +300,9 @@ return {
     },
     ft = { "markdown", "Avante" },
   },
+
+  {
+    "ggml-org/llama.vim",
+  },
 }
+
