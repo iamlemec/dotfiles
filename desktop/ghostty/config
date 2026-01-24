@@ -1,5 +1,5 @@
 font-family = "MonaspiceNe Nerd Font Mono"
-font-size = 9
+font-size = 11
 
 theme = "Dark Modern"
 background-opacity = 0.9
@@ -10,3 +10,6 @@ window-decoration = false
 # keybind = page_up=scroll_page_up
 # keybind = page_down=scroll_page_down
 
+keybind = ctrl+enter=unbind
+
+keybind = shift+enter=text:\n
