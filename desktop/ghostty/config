@@ -2,14 +2,11 @@ font-family = "MonaspiceNe Nerd Font Mono"
 font-size = 11
 
 theme = "Dark Modern"
-background-opacity = 0.9
 cursor-style = "block"
+
 shell-integration-features = no-cursor
 window-decoration = false
 
-# keybind = page_up=scroll_page_up
-# keybind = page_down=scroll_page_down
-
 keybind = ctrl+enter=unbind
+keybind = ctrl+p=prompt_surface_title
 
-keybind = shift+enter=text:\n
