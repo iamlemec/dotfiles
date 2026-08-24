@@ -108,17 +108,37 @@ hl.config({
         groupbar = {
             height = 28,
             font_size = 18,
-            indicator_height = 0,
             gradients = true,
+
             gradient_rounding = 5,
-            gaps_in = 3,
-            gaps_out = 3,
+            gradient_round_only_edges = true,
+
+            indicator_height = 3,
+            indicator_gap = 0,
+            rounding = 5,
+            round_only_edges = false,
+            round_only_outer = true,
+
+            text_padding = 10,
+            unfocused_opacity = 0.8,
+            font_weight_active = "normal",
+            font_weight_inactive = "normal",
+            text_color_inactive = "rgba(ffffffaa)",
+
+            blur = true,
+            gaps_in = 4,
+            gaps_out = 4,
+            keep_upper_gap = false,
 
             col = {
-                active = "rgba(88bbdddd)",
+                active = "rgba(1e88e5cc)",
                 inactive = "rgba(888888aa)",
-                locked_active = "rgba(e5332aaa)",
+                locked_active = "rgba(ff0d57cc)",
                 locked_inactive = "rgba(888888aa)",
+                indicator_active = "rgba(ffffffdd)",
+                indicator_inactive = "rgba(aaaaaaaa)",
+                indicator_locked_active = "rgba(ffffffdd)",
+                indicator_locked_inactive = "rgba(aaaaaaaa)",
             },
         },
     },
@@ -193,8 +213,8 @@ hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen())
 -- Group controls
 hl.bind(mainMod .. " + G", hl.dsp.group.toggle())
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.group.lock())
-hl.bind(mainMod .. " + Page_Up", hl.dsp.group.next())
-hl.bind(mainMod .. " + Page_Down", hl.dsp.group.prev())
+hl.bind(mainMod .. " + Page_Up", hl.dsp.group.prev())
+hl.bind(mainMod .. " + Page_Down", hl.dsp.group.next())
 
 -- Move focus with mainMod + arrow keys
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
@@ -240,3 +260,23 @@ hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ to
 
 -- Screenshots
 hl.bind("Print", hl.dsp.exec_cmd("slurp | grim -g -"))
+
+-- Zooming
+local MAX_ZOOM = 3
+local MIN_ZOOM = 1
+
+---@param offset number
+---@return nil
+local function zoom(offset)
+    local curr_zoom = hl.get_config("cursor.zoom_factor")
+    local next_zoom = math.max(MIN_ZOOM, math.min(MAX_ZOOM, curr_zoom + offset))
+    hl.config({ cursor = { zoom_factor = next_zoom } })
+end
+
+hl.bind(mainMod .. " + SHIFT + mouse_down", function()
+    zoom(0.5)
+end)
+hl.bind(mainMod .. " + SHIFT + mouse_up", function()
+    zoom(-0.5)
+end)
+
